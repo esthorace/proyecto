@@ -1,7 +1,11 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    App Productos: Formulario de Categorías de Productos
+    {% if form.instance.pk %}
+        App Productos: Actualizando Categoría de Productos
+    {% else %}
+        App Productos: Creando Categoría de Productos
+    {% endif %}
 {% endblock header %}
 
 {% block main %}

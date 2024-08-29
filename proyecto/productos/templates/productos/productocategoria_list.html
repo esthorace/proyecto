@@ -17,6 +17,7 @@
             <li>{{ object.nombre }}
                 <a href="{% url 'productos:productocategoria_detail' object.id %}">Detalle</a>
                 <a href="{% url 'productos:productocategoria_update' object.id %}">Cambiar</a>
+                <a href="{% url 'productos:productocategoria_delete' object.id %}">Borrar</a>
             </li>
         {% empty %}
             <p>No hay registros</p>
