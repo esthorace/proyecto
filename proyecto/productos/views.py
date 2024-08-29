@@ -36,3 +36,17 @@ def productocategoria_detail(request, pk: int):
     query = ProductoCategoria.objects.get(id=pk)
     context = {'object': query}
     return render(request, 'productos/productocategoria_detail.html', context)
+
+
+def productocategoria_update(request, pk: int):
+    query = ProductoCategoria.objects.get(id=pk)
+    if request.method == 'GET':
+        form = ProductoCategoriaForm(instance=query)
+
+    if request.method == 'POST':
+        form = ProductoCategoriaForm(request.POST, instance=query)
+        if form.is_valid():
+            form.save()
+            return redirect('productos:productocategoria_list')
+
+    return render(request, 'productos/productocategoria_form.html', {'form': form})

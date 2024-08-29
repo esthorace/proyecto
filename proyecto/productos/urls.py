@@ -16,4 +16,9 @@ urlpatterns = [
         views.productocategoria_detail,
         name='productocategoria_detail',
     ),
+    path(
+        'productocategoria/update/<int:pk>',
+        views.productocategoria_update,
+        name='productocategoria_update',
+    ),
 ]
