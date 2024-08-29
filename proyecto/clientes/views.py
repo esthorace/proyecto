@@ -18,16 +18,6 @@ def pais_list(request):
     return render(request, 'clientes/pais_list.html', context)
 
 
-def cliente_list(request):
-    q = request.GET.get('q')
-    if q:
-        query = Cliente.objects.filter(nombre__icontains=q)
-    else:
-        query = Cliente.objects.all()
-    context = {'object_list': query}
-    return render(request, 'clientes/cliente_list.html', context)
-
-
 def pais_create(request):
     if request.method == 'GET':
         form = PaisForm()
@@ -42,6 +32,22 @@ def pais_create(request):
     return render(request, 'clientes/pais_form.html', {'form': form})
 
 
+def pais_detail(request, pk: int):
+    query = Pais.objects.get(id=pk)
+    context = {'object': query}
+    return render(request, 'clientes/pais_detail.html', context)
+
+
+def cliente_list(request):
+    q = request.GET.get('q')
+    if q:
+        query = Cliente.objects.filter(nombre__icontains=q)
+    else:
+        query = Cliente.objects.all()
+    context = {'object_list': query}
+    return render(request, 'clientes/cliente_list.html', context)
+
+
 def cliente_create(request):
     if request.method == 'GET':
         form = ClienteForm()
@@ -53,9 +59,3 @@ def cliente_create(request):
             return redirect('clientes:cliente_list')
 
     return render(request, 'clientes/cliente_form.html', {'form': form})
-
-
-def pais_detail(request, pk: int):
-    query = Pais.objects.get(id=pk)
-    context = {'object': query}
-    return render(request, 'clientes/pais_detail.html', context)
