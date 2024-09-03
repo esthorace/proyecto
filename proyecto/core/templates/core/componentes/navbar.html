@@ -1,11 +1,24 @@
-<div style="margin-bottom: 2%; display: flex; justify-content: center; gap: 1%; background-color: lightslategray;">
+<div style="margin-bottom: 2%;
+            display: flex;
+            justify-content: center;
+            gap: 1%;
+            background-color: lightslategray">
     <button>
         <a href="{% url 'core:index' %}">🏠Home</a>
     </button>
-    <button>
-        <a href="{% url 'clientes:index' %}">Clientes</a>
-    </button>
-    <button>
-        <a href="{% url 'productos:index' %}">Productos</a>
-    </button>
+    {% if user.is_authenticated %}
+        <button>
+            <a href="{% url 'clientes:index' %}">Clientes</a>
+        </button>
+        <button>
+            <a href="{% url 'productos:index' %}">Productos</a>
+        </button>
+        <button>
+            <a href="#">{{ user.username }}</a>
+        </button>
+    {% else %}
+        <button>
+            <a href="{% url 'core:login' %}">Login</a>
+        </button>
+    {% endif %}
 </div>
