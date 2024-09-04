@@ -2,9 +2,9 @@
 
 {% block header %}
     {% if form.instance.pk %}
-        App Productos: Actualizando Categoría de Productos
+        Productos: Actualizando Categoría de Productos
     {% else %}
-        App Productos: Creando Categoría de Productos
+        Productos: Creando Categoría de Productos
     {% endif %}
 {% endblock header %}
 
@@ -14,7 +14,5 @@
         {{ form.as_p }}
         <button type="submit">Enviar</button>
     </form>
-    <button>
-        <a href="{% url 'productos:productocategoria_list' %}">Volver</a>
-    </button>
+    {% include 'productos/partials/volver_productocategoria.html' %}
 {% endblock main %}

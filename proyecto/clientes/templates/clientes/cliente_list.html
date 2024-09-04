@@ -1,30 +1,57 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    App Clientes: Registros de Clientes
+    Clientes: Listado de Clientes
 {% endblock header %}
 
 {% block main %}
-    <form action="{% url 'clientes:cliente_list' %}" method="get">
-        <input type="text" name="q" placeholder="Buscar..." />
-        <button type="submit">Buscar</button>
-        <button>
-            <a href="{% url 'clientes:cliente_create' %}">Crear Registro</a>
-        </button>
-    </form>
-    <ul>
-        {% for object in object_list %}
-            {% if object.pais_origen_id.nombre %}
-                <li>{{ object.apellido | upper }}, {{ object.nombre }} ({{ object.pais_origen_id.nombre }})</li>
-            {% else %}
-                <li>{{ object.apellido | upper }}, {{ object.nombre }}</li>
-            {% endif %}
-        {% empty %}
-            <p>No hay registros</p>
-        {% endfor %}
-    </ul>
-    <button>
-        <a href="{% url 'clientes:index' %}">Volver</a>
-    </button>
+    <div style="display: flex; justify-content: center;">
+        <form method="get" style="display: flex; padding-right: 1%;">
+            <input type="text" name="q" placeholder="Buscar..." />
+            <button type="submit">Buscar</button>
+        </form>
+        <a href="{% url 'clientes:cliente_create' %}" class="button">Crear Registro</a>
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Apellido</th>
+                    <th style="width: 30%;">Nombre</th>
+                    <th style="width: 25%;">País de Origen</th>
+                    <th style="width: 5%;"></th>
+                    <th style="width: 5%;"></th>
+                    <th style="width: 5%;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for object in object_list %}
+                    <tr>
+                        <td>{{ object.apellido | upper }}</td>
+                        <td>{{ object.nombre }}</td>
+                        <td>
+                            {% if object.pais_origen_id.nombre %}
+                                {{ object.pais_origen_id.nombre }}
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="#">Detalle</a>
+                        </td>
+                        <td>
+                            <a href="#">Cambiar</a>
+                        </td>
+                        <td>
+                            <a href="#">Borrar</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="6">No hay registros</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock main %}
-

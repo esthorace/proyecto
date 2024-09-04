@@ -1,14 +1,12 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    App Clientes: Vista en Detalle de Países
+    Clientes: Vista en Detalle de Países
 {% endblock header %}
 
 {% block main %}
     <ul>
         <li>Nombre: {{ object.nombre }}</li>
     </ul>
-    <button>
-        <a href="{% url 'clientes:pais_list' %}">Volver</a>
-    </button>
+    {% include 'clientes/partials/volver_pais.html' %}
 {% endblock main %}

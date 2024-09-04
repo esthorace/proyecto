@@ -7,11 +7,10 @@
 {% block main %}
     <form method="post">
         {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
+        {{ form.as_p }}
         <button type="submit">Iniciar sesión</button>
     </form>
-
-    <p>¿No tienes una cuenta? <a href="{% url 'core:register' %}">Regístrate aquí</a></p>
+    <p>
+        ¿No tienes una cuenta? <a href="{% url 'core:register' %}">Regístrate aquí</a>
+    </p>
 {% endblock main %}

@@ -1,15 +1,13 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    Nueva cuenta
+    Registro de Usuario
 {% endblock header %}
 
 {% block main %}
     <form method="post">
         {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
+        {{ form.as_p }}
         <button type="submit">Registrarse</button>
     </form>
 {% endblock main %}

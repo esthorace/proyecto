@@ -1,14 +1,16 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    App Clientes
+    Clientes
 {% endblock header %}
 
 {% block main %}
-    <button>
-        <a href="{% url 'clientes:cliente_list' %}">Clientes</a>
-    </button>
-    <button>
-        <a href="{% url 'clientes:pais_list' %}">Países de origen</a>
-    </button>
+    <div style="display: flex; flex-direction: column ;align-items: center;">
+        <a href="{% url 'clientes:cliente_list' %}">
+            <button>Clientes</button>
+        </a>
+        <a href="{% url 'clientes:pais_list' %}">
+            <button>Países de origen</button>
+        </a>
+    </div>
 {% endblock main %}

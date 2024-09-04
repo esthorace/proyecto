@@ -3,26 +3,24 @@
             justify-content: center;
             gap: 1%;
             background-color: lightslategray">
-    <button>
-        <a href="{% url 'core:index' %}">🏠Home</a>
-    </button>
+    <a href="{% url 'core:index' %}">
+        <button>🏠Home</button>
+    </a>
     {% if user.is_authenticated %}
-        <button>
-            <a href="{% url 'clientes:index' %}">Clientes</a>
-        </button>
-        <button>
-            <a href="{% url 'productos:index' %}">Productos</a>
-        </button>
-        <button>
-            <a href="#">{{ user.username }}</a>
-        </button>
+        <a href="{% url 'clientes:index' %}">
+            <button>Clientes</button>
+        </a>
+        <a href="{% url 'productos:index' %}">
+            <button>Productos</button>
+        </a>
+        <button>{{ user.username }}</button>
         <form action="{% url 'core:logout' %}" method="post">
             {% csrf_token %}
             <button type="submit">Logout</button>
         </form>
     {% else %}
-        <button>
-            <a href="{% url 'core:login' %}">Login</a>
-        </button>
+        <a href="{% url 'core:login' %}">
+            <button>Login</button>
+        </a>
     {% endif %}
 </div>

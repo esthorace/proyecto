@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    App Productos: Borrar Categoría de Productos
+    Productos: Borrar Categoría de Productos
 {% endblock header %}
 
 {% block main %}
@@ -10,7 +10,5 @@
         {% csrf_token %}
         <button type="submit">Confirmo</button>
     </form>
-    <button>
-        <a href="{% url 'productos:productocategoria_list' %}">Volver</a>
-    </button>
+    {% include 'productos/partials/volver_productocategoria.html' %}
 {% endblock main %}

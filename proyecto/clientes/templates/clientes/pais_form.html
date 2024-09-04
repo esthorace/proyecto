@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    App Clientes: Formulario de Países
+    Clientes: Formulario de Países
 {% endblock header %}
 
 {% block main %}
@@ -10,7 +10,5 @@
         {{ form.as_p }}
         <button type="submit">Enviar</button>
     </form>
-    <button>
-        <a href="{% url 'clientes:cliente_list' %}">Volver</a>
-    </button>
+    {% include 'clientes/partials/volver_pais.html' %}
 {% endblock main %}
