@@ -1,11 +1,12 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block header %}
     Proyecto Django
 {% endblock header %}
 
 {% block main %}
-    <img src="https://d1eipm3vz40hy0.cloudfront.net/images/SSAC-Blog/mercadotecnia-marketing-productos.jpg"
+    <img src="{% static 'core/img/caja-pandora.webp' %}"
          alt="imagen"
          width="100%"
          height="auto"

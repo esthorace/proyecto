@@ -111,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'America/Argentina/Mendozag'
+TIME_ZONE = 'America/Argentina/Mendoza'
 
 USE_I18N = True
 
@@ -133,3 +133,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = reverse_lazy('core:login')
 # URL a la que se redirige después de un inicio de sesión exitoso
 LOGIN_REDIRECT_URL = reverse_lazy('core:index')
+
+# MEDIA_ROOT sirve para indicar la ruta donde se almacenarán los archivos multimedia
+MEDIA_ROOT = BASE_DIR / 'media'
+# MEDIA_URL indica la URL pública desde donde se podrán acceder a los archivos multimedia
+MEDIA_URL = '/media/'
