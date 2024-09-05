@@ -13,7 +13,9 @@
         <a href="{% url 'productos:index' %}">
             <button>Productos</button>
         </a>
-        <button>{{ user.username }}</button>
+        <a href="{% url 'core:profile' %}">
+            <button>{{ user.username }}</button>
+        </a>
         <form action="{% url 'core:logout' %}" method="post">
             {% csrf_token %}
             <button type="submit">Logout</button>
