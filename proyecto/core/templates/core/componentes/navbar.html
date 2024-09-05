@@ -1,3 +1,5 @@
+{% load static %}
+
 <div style="margin-bottom: 2%;
             display: flex;
             justify-content: center;
@@ -17,7 +19,13 @@
             <button>{{ user.username }}</button>
         </a>
         {% if user.vendedor.avatar %}
-            <img src="{{ user.vendedor.avatar.url }}" alt="avatar" style="height: 30px;">
+            <img src="{{ user.vendedor.avatar.url }}"
+                 alt="avatar"
+                 style="height: 30px" />
+        {% else %}
+            <img src="{% static 'core/img/perfil.png' %}"
+                 alt="avatar"
+                 style="height: 30px" />
         {% endif %}
         <form action="{% url 'core:logout' %}" method="post">
             {% csrf_token %}
