@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'core',
     'clientes',
     'productos',
+    'ventas',
 ]
 
 MIDDLEWARE = [
@@ -110,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Argentina/Mendoza'
 
 USE_I18N = True
 
