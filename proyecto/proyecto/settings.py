@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-m^zo4+)3_n)a+_opv-ng!)*+=lke#nf2qj4b3epgqa419xx38k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['esthorace1.pythonanywhere.com']
 
 
 # Application definition
@@ -138,3 +138,11 @@ LOGIN_REDIRECT_URL = reverse_lazy('core:index')
 MEDIA_ROOT = BASE_DIR / 'media'
 # MEDIA_URL indica la URL pública desde donde se podrán acceder a los archivos multimedia
 MEDIA_URL = '/media/'
+
+STATIC_ROOT = BASE_DIR / 'static'
+
+try:
+    # Imprta la configuración de desarrollo cuando el archivo esté
+    from .settings_dev import *
+except ModuleNotFoundError:
+    pass
